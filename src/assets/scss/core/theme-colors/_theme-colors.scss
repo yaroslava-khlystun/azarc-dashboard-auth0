@@ -1,0 +1,23 @@
+// Theme colors
+#main-wrapper {
+  /*This is for the logo bg*/
+  .topbar .top-navbar .navbar-header {
+      background: $white;
+      .navbar-brand {
+        .dark-logo {
+          display: inline;
+        }
+        .light-logo {
+          display: none;
+        }
+      }
+      .nav-toggler,
+      .topbartoggler {
+        color: $body-color;
+      }
+  }
+  .topbar .navbar-collapse,
+  .topbar {
+      background: $dark;
+  }
+}

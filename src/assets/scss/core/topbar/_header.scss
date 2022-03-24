@@ -1,0 +1,73 @@
+/*******************
+ General Topbar
+*******************/
+
+.topbar {
+  position: relative;
+  z-index: 100;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.05);
+  background: $topbar;
+  height: $topbar-height;
+  .navbar-collapse {
+    padding: 0px 10px 0 0;
+  }
+  .top-navbar {
+    min-height: $topbar-height;
+    padding: 0px;
+    .navbar-header {
+      line-height: $topbar-navlink-height;
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        padding: $topbar-navbrand-padding;
+        .dark-logo {
+          display: none;
+        }
+        .logo-icon {
+          margin-right: 5px;
+        }
+      }
+    }
+    .navbar-nav > .nav-item > .nav-link {
+      padding: $topbar-navlink-padding;
+      font-size: $topbar-navlink-font-size;
+      line-height: $topbar-navlink-height;
+      height: $topbar-navlink-height;
+    }
+    .navbar-nav > .nav-item {
+      transition: 0.2s ease-in;
+      &:hover {
+        background: $transparent-dark-bg;
+      }
+    }
+  }
+  .nav-toggler,
+  .topbartoggler {
+    color: $theme-light;
+    padding: 0 15px;
+  }
+  .font-size-26 {
+    font-size: 26px;
+  }
+}
+
+/* Topbar */
+
+  .topbar .top-navbar {
+    .navbar-nav {
+      flex-direction: row;
+      .dropdown {
+        position: relative;
+      }
+    }
+    .navbar-nav > .nav-item > .nav-link {
+      padding: 0 10px;
+    }
+    .navbar-header {
+      display: flex;
+      align-items: center;
+      width: 100% !important;
+      justify-content: space-between;
+    }
+  }

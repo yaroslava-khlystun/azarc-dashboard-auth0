@@ -1,0 +1,45 @@
+// scafholding
+* {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: $body-color;
+  background: $main-body-bg;
+  position: relative;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+a {
+  color: $info;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a.link {
+  color: $body-color;
+  &:hover,
+  &:focus {
+    color: $info;
+  }
+}
+
+//
+// Font weight
+//
+
+html body {
+  .font-medium {
+    font-weight: 500;
+  }
+}
