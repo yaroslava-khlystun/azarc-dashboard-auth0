@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
 
 import { DesktopComponent } from './layouts/desktop/desktop.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 export const Approutes: Routes = [
   {
@@ -17,7 +18,8 @@ export const Approutes: Routes = [
       },
       {
         path: 'profile',
-        loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
       }
     ]
   },

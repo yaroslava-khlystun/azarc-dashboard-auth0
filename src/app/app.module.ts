@@ -15,7 +15,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DesktopComponent } from './layouts/desktop/desktop.component';
-
+import { ProfileComponent } from './modules/profile/profile.component'
 import { NavigationComponent } from './shared/header/navigation.component';
 
 import { Approutes } from './app-routing.module';
@@ -38,6 +38,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppComponent,
     SpinnerComponent,
     DesktopComponent,
+    ProfileComponent,
     NavigationComponent
   ],
   imports: [
