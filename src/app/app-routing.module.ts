@@ -1,15 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+// Import the authentication guard
+import { AuthGuard } from '@auth0/auth0-angular';
 
-import { FullComponent } from './layouts/full/full.component';
-import {DashboardModule} from "./modules/dashboard/dashboard.module";
-import {ProfileModule} from "./modules/profile/profile.module";
-import {SettingsModule} from "./modules/settings/settings.module";
+import { DesktopComponent } from './layouts/desktop/desktop.component';
 
 export const Approutes: Routes = [
   {
     path: '',
-    component: FullComponent,
+    component: DesktopComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       {
@@ -19,15 +18,11 @@ export const Approutes: Routes = [
       {
         path: 'profile',
         loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
-      },
-      {
-        path: 'settings',
-        loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule)
       }
     ]
   },
   {
     path: '**',
-    redirectTo: '/starter'
+    redirectTo: '/sign-in'
   }
 ];

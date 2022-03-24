@@ -1,8 +1,7 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
-declare var $: any;
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-navigation',
@@ -15,8 +14,13 @@ export class NavigationComponent implements AfterViewInit {
 
   public showSearch = false;
 
-  constructor(private modalService: NgbModal) {
+  constructor(public auth: AuthService) {
   }
 
   ngAfterViewInit() { }
+
+  logout(): void {
+    // Call this to log the user out of the application
+    this.auth.logout({ returnTo: window.location.origin });
+  }
 }

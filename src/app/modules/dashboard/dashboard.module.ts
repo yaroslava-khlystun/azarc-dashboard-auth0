@@ -5,6 +5,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DashboardComponent } from "./dashboard.component";
 import { EmployeeListComponent } from "./dashboard-components/employee-list/employee-list.component";
+// Import the authentication guard
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
       urls: [{ title: "Dashboard", url: "/dashboard" }, { title: "Dashboard" }],
     },
     component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

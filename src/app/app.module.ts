@@ -6,12 +6,15 @@ import {
 } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+// Import the module from the SDK
+import { AuthModule } from '@auth0/auth0-angular';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { FullComponent } from './layouts/full/full.component';
+import { DesktopComponent } from './layouts/desktop/desktop.component';
 
 import { NavigationComponent } from './shared/header/navigation.component';
 
@@ -34,7 +37,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [
     AppComponent,
     SpinnerComponent,
-    FullComponent,
+    DesktopComponent,
     NavigationComponent
   ],
   imports: [
@@ -47,6 +50,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgbModule,
     RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' }),
     PerfectScrollbarModule,
+    AuthModule.forRoot({
+      domain: 'dev-j1x53-8f.us.auth0.com',
+      clientId: 'R1A10THLcgAeJAn4QoolyajCw9OyXNjc'
+    }),
   ],
   providers: [
     {

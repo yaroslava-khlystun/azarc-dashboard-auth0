@@ -30,12 +30,11 @@ Footer
 }
 
 /*******************
-Vertical layout
+Desktop layout
 *******************/
 
-#main-wrapper[data-layout="vertical"] {
+#main-wrapper{
   .topbar .top-navbar .navbar-header {
-    //width: $sidebar-width-full;
     transition: 0.2s ease-in;
   }
 }
@@ -47,22 +46,13 @@ Vertical layout
 
 @media (max-width: 991px) {
   #main-wrapper {
-    &[data-layout="vertical"][data-sidebartype="full"] {
+    &[data-sidebartype="desktop"] {
       .page-wrapper {
         margin-left: 0;
       }
     }
-
-    &[data-layout="vertical"][data-sidebar-position="fixed"] {
-      .topbar .top-navbar {
-        .navbar-collapse {
-          position: relative;
-          top: $topbar-height;
-        }
-      }
-    }
     /*Header position*/
-    &[data-layout="vertical"][data-header-position="fixed"][data-sidebar-position="fixed"] {
+    &[data-header-position="fixed"][data-sidebar-position="fixed"] {
       .topbar .top-navbar {
         .navbar-collapse {
           position: relative;
