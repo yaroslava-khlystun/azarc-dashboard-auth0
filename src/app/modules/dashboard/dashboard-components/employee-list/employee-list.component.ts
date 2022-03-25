@@ -20,12 +20,4 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  public onPageChange(pageNum: number): void {
-    this.pageSize = this.itemsPerPage*(pageNum - 1);
-  }
-
-  public changePagesize(num: number): void {
-    this.itemsPerPage = this.pageSize + num;
-  }
 }

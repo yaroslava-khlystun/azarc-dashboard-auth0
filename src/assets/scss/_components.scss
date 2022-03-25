@@ -45,11 +45,93 @@
   font-weight: 500;
 }
 
-.card-search-input {
-  width: 100%;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #272c32;
+//
+// Search field
+//
+
+.has-search {
+  .form-control {
+    padding-right: 4rem;
+    position: relative;
+    display: inline-block !important;
+    width: calc(100% - 3em) !important;
+  }
+  fa-search {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    margin-left: -1em;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+}
+//
+// Profile Form
+//
+
+.form-material .form-group {
+  overflow: hidden
+}
+
+.form-material .form-group label {
+  font-size: 16px;
+  color: #54667a
+}
+
+.form-material .form-group .form-control,.form-material .form-group .form-select {
+  background-color: transparent;
+  background-position: center bottom,center calc(100% - 1px);
+  background-repeat: no-repeat;
+  background-size: 0 2px,100% 1px;
+  padding: 0;
+  -webkit-transition: background 0s ease-out 0s;
+  -o-transition: background 0s ease-out 0s;
+  transition: background 0s ease-out 0s;
+  border: 0;
+  border-bottom: 1px solid #dee2e6
+}
+
+.form-material .form-group .form-control:focus,.form-material .form-group .form-select:focus {
+  background-image: -webkit-gradient(linear,left top,left bottom,from($info),to($info)),-webkit-gradient(linear,left top,left bottom,from($light),to($light));
+  background-image: -o-linear-gradient($info,$info),-o-linear-gradient($light,$light);
+  background-image: linear-gradient($info,$info),linear-gradient($light,$light);
+  border: 0 none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  float: none;
+  background-size: 100% 2px,100% 1px;
+  outline: 0 none;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s
+}
+
+.form-material .form-group .btn-success {
+  background: $info;
+  border-color: $info;
+  -webkit-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  transition: 0.2s ease-in
+}
+
+.form-material .form-group .btn-success:active {
+  background: $info;
+  border-color: 1px solid $info
+}
+
+.form-group {
+  margin-bottom: 1rem
+}
+
+.card-body {
+  padding: 1.25rem
+}
+
+.profile-card {
+  margin-top: -20px;
 }
