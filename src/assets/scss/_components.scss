@@ -4,6 +4,7 @@
 .btn-info,
 .btn-info:hover,{
     color: $white;
+    background: $btn-color;
 }
 
 //
@@ -41,19 +42,19 @@
 
 .has-search {
   .form-control {
-    padding-right: 4rem;
+    padding-right: 2rem !important;
     position: relative;
     display: inline-block !important;
-    width: calc(100% - 3em) !important;
+    width: 100%;
   }
-  fa-search {
+  .fa-search {
     position: absolute;
     z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    margin-left: -1em;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    margin-left: -2rem;
+    top: 1.5rem;
     text-align: center;
     pointer-events: none;
     color: #aaa;
@@ -69,7 +70,7 @@
 
 .form-material .form-group label {
   font-size: 16px;
-  color: #54667a
+  color: $headings-color;
 }
 
 .form-material .form-group .form-control,.form-material .form-group .form-select {
@@ -124,4 +125,7 @@
 
 .profile-card {
   margin-top: -20px;
+}
+.profile-additional-information-header {
+  font-weight: $headings-font-weight;
 }

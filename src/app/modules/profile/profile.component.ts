@@ -33,12 +33,23 @@ export class ProfileComponent implements OnInit {
               public userService: UserService) {}
 
   ngOnInit(): void {
-
-    // this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    // this.currentUser['personal_details'] = this.personalDetails;
-    // localStorage.setItem('currentUser',JSON.stringify(this.currentUser));
     this.currentUser = this.userService.getCurrentUser();
+  }
 
-    console.log('PROFILE this.currentUser= ', this.currentUser);
+  addItemEvent(newItem: string) {
+    if (this.currentUser.personal_details.hasOwnProperty('work_office_location')) {
+      this.currentUser.personal_details.work_office_location?.push(newItem)
+    }
+  }
+
+  removeLocation(removeItem: string) {
+    if (this.currentUser.personal_details.hasOwnProperty('work_office_location')) {
+      this.currentUser.personal_details.work_office_location?.splice(this.currentUser.personal_details.work_office_location?.
+      findIndex(item => item === removeItem),1);
+    }
+  }
+
+  updateProfile() {
+    this.userService.setCurrentUser(this.currentUser);
   }
 }

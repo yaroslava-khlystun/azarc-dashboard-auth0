@@ -69,30 +69,24 @@
               </div>
             </div>
             <br>
-            <h3>Add Additional Information:</h3>
+            <h3 class="profile-additional-information-header">Add Additional Information:</h3>
             <div class="form-group">
               <label class="col-md-12 mb-0">Residential Address:</label>
               <div class="col-md-12">
-                <input type="text" [value]="[currentUser.personal_details.residential_address]"
-                       class="form-control ps-0 form-control-line" readonly>
+                <input type="text" [(ngModel)]="currentUser.personal_details.residential_address"
+                       class="form-control ps-0 form-control-line" name="residential_address">
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-12 mb-0">Work Office Location:</label>
               <div class="col-sm-12 mb-0">
-                <select class="form-select shadow-none ps-0 border-0 form-control-line">
-                  <option>London</option>
-                  <option>India</option>
-                  <option>Usa</option>
-                  <option>Canada</option>
-                  <option>Thailand</option>
-                </select>
+                <app-ng-chips [items]="currentUser.personal_details.work_office_location" (addItemEvent)="addItemEvent($event)" (removeItemEvent)="removeLocation($event)"></app-ng-chips>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-12 d-flex">
-                <button type="button" class="btn btn-info"> Update Profile </button>
+                <button type="button" class="btn btn-info" (click)="updateProfile()"> Update Profile </button>
               </div>
             </div>
           </form>

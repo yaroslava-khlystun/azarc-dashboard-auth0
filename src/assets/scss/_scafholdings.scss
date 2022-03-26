@@ -34,6 +34,10 @@ a.link {
   }
 }
 
+button {
+  border-radius: 0 !important;
+}
+
 //
 // Font weight
 //
@@ -42,4 +46,11 @@ html body {
   .font-medium {
     font-weight: 500;
   }
+}
+
+//
+// Tag
+//
+tag {
+  border-radius: 0 !important;
 }

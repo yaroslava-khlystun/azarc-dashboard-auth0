@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
-//declare var $: any;
-
 @Component({
   selector: "app-desktop-layout",
   templateUrl: "./desktop.component.html",

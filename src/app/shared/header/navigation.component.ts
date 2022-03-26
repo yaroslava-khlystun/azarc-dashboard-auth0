@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { AfterViewInit, Component } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 import { CurrentUser } from '../../core/models/currentUser.model';
 import { PersonalDetails } from '../../core/models/currentUser.model';
 
@@ -10,9 +10,9 @@ import { UserService } from "../../core/services/user/user.service";
   selector: 'app-navigation',
   templateUrl: './navigation.component.html'
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements AfterViewInit {
   personalDetails:PersonalDetails = {
-    residential_address: 'NEW',
+    residential_address: '',
     work_office_location: [],
   };
 
@@ -31,11 +31,16 @@ export class NavigationComponent implements OnInit {
   };
 
   constructor(public auth: AuthService,
-              public userService: UserService) {
+              public userService: UserService,
+              private cdRef:ChangeDetectorRef) {
+    this.currentUser = this.userService.getCurrentUser();
+    console.log('NAV this.currentUser= ', this.currentUser);
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.currentUser = this.userService.getCurrentUser();
+    console.log('NAV this.currentUser= ', this.currentUser);
+    this.cdRef.detectChanges();
   }
 
   logout(): void {
