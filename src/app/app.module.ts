@@ -24,7 +24,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { NgChipsComponent } from './core/components/ng-chips/ng-chips/ng-chips.component';
+import { NgChipsComponent } from './core/components/ng-chips/ng-chips.component';
 import { TagInputModule } from 'ngx-chips';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
