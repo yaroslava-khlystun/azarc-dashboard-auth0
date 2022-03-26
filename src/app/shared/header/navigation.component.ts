@@ -33,13 +33,11 @@ export class NavigationComponent implements AfterViewInit {
   constructor(public auth: AuthService,
               public userService: UserService,
               private cdRef:ChangeDetectorRef) {
-    this.currentUser = this.userService.getCurrentUser();
-    console.log('NAV this.currentUser= ', this.currentUser);
   }
 
   ngAfterViewInit() {
     this.currentUser = this.userService.getCurrentUser();
-    console.log('NAV this.currentUser= ', this.currentUser);
+    console.log('NAV ngAfterViewInit this.currentUser= ', this.currentUser);
     this.cdRef.detectChanges();
   }
 

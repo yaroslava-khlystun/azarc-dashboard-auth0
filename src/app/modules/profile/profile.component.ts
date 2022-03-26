@@ -51,5 +51,6 @@ export class ProfileComponent implements OnInit {
 
   updateProfile() {
     this.userService.setCurrentUser(this.currentUser);
+    console.log('user updated!');
   }
 }

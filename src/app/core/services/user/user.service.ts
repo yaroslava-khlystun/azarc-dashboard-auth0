@@ -27,6 +27,9 @@ export class UserService {
   };
 
   constructor(public auth: AuthService) {
+    if (Object.keys(this.getCurrentUser()).length !== 0) {
+      return;
+    }
     this.auth.getUser<CurrentUser>()
       .subscribe((data) => {
         this.currentUser = {...this.currentUser, ...data};
