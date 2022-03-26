@@ -1,14 +1,15 @@
-import {Component, AfterViewInit, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { CurrentUser } from '../../core/models/currentUser.model';
 import { PersonalDetails } from '../../core/models/currentUser.model';
+import { UserService } from "../../core/services/user/user.service";
 
 @Component({
   templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent implements AfterViewInit, OnInit {
+export class DashboardComponent implements OnInit {
   personalDetails:PersonalDetails = {
-    residential_address: 'NEW',
+    residential_address: '',
     work_office_location: [],
   };
 
@@ -25,17 +26,16 @@ export class DashboardComponent implements AfterViewInit, OnInit {
     sub: '',
     personal_details: this.personalDetails
   };
-  user: any;
 
-  constructor(public auth: AuthService) {
-  }
-
-  ngAfterViewInit() {
+  constructor(public auth: AuthService,
+              public userService: UserService) {
   }
 
   ngOnInit() {
-    this.auth.user$.subscribe(
-      (profile) => (localStorage.setItem('currentUser', profile ? JSON.stringify(profile) : '{}'))
-    );
+    this.auth.getUser<CurrentUser>()
+      .subscribe((data) => {
+        this.currentUser = {...this.currentUser, ...data};
+        this.userService.setCurrentUser(this.currentUser);
+      });
   }
 }

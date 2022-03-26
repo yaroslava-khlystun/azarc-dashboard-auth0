@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { CurrentUser } from '../../core/models/currentUser.model';
 import { PersonalDetails } from '../../core/models/currentUser.model';
 
 import { AuthService } from '@auth0/auth0-angular';
+import { UserService } from "../../core/services/user/user.service";
 
 @Component({
   selector: 'app-navigation',
@@ -29,16 +30,17 @@ export class NavigationComponent implements OnInit {
     personal_details: this.personalDetails
   };
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService,
+              public userService: UserService) {
   }
 
   ngOnInit() {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.currentUser = this.userService.getCurrentUser();
   }
 
   logout(): void {
     // Call this to log the user out of the application
     this.auth.logout({ returnTo: window.location.origin });
-    localStorage.clear();
+    this.userService.removeCurrentUser();
   }
 }
