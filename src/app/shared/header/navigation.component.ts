@@ -37,7 +37,6 @@ export class NavigationComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.currentUser = this.userService.getCurrentUser();
-    console.log('NAV ngAfterViewInit this.currentUser= ', this.currentUser);
     this.cdRef.detectChanges();
   }
 
