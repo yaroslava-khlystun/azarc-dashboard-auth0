@@ -12,6 +12,8 @@
     "experimentalDecorators": true,
     "target": "es2015",
     "strict": true,
+    "noImplicitReturns": false,
+    "strictPropertyInitialization": false,
     "typeRoots": [
       "node_modules/@types"
     ],

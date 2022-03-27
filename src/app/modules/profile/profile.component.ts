@@ -3,7 +3,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { CurrentUser } from '../../core/models/currentUser.model';
 import { PersonalDetails } from '../../core/models/currentUser.model';
 import { UserService } from "../../core/services/user/user.service";
-
+import { AlertService } from "../../core/services/alert/alert.service";
 
 @Component({
   selector: 'app-profile',
@@ -29,28 +29,23 @@ export class ProfileComponent implements OnInit {
     sub: '',
     personal_details: this.personalDetails
   };
+  isDisabled: boolean = false;
   constructor(public auth: AuthService,
-              public userService: UserService) {}
+              public userService: UserService,
+              public alertService: AlertService) {}
 
   ngOnInit(): void {
     this.currentUser = this.userService.getCurrentUser();
   }
 
-  addItemEvent(newItem: string) {
-    if (this.currentUser.personal_details.hasOwnProperty('work_office_location')) {
-      this.currentUser.personal_details.work_office_location?.push(newItem)
-    }
-  }
-
-  removeLocation(removeItem: string) {
-    if (this.currentUser.personal_details.hasOwnProperty('work_office_location')) {
-      this.currentUser.personal_details.work_office_location?.splice(this.currentUser.personal_details.work_office_location?.
-      findIndex(item => item === removeItem),1);
-    }
+  getUpdatedUser(updatedUser: CurrentUser) {
+    this.currentUser = updatedUser;
   }
 
   updateProfile() {
     this.userService.setCurrentUser(this.currentUser);
-    console.log('user updated!');
+    this.isDisabled = true;
+    this.alertService.success('User profile successfully updated!');
+    this.isDisabled = false;
   }
 }

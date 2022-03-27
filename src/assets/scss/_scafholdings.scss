@@ -16,6 +16,9 @@ html {
   min-height: 100%;
 }
 
+//
+// Links
+//
 a {
   color: $info;
   text-decoration: none;
@@ -33,6 +36,10 @@ a.link {
     color: $info;
   }
 }
+
+//
+// Buttons
+//
 
 button {
   border-radius: 0 !important;
@@ -54,3 +61,4 @@ html body {
 tag {
   border-radius: 0 !important;
 }
+
