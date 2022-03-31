@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import { NgChipsComponent } from './ng-chips.component';
+import { TagInputModule } from 'ngx-chips';
+import { FormsModule } from '@angular/forms';
 
 describe('NgChipsComponent', () => {
   let component: NgChipsComponent;
@@ -8,7 +10,8 @@ describe('NgChipsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgChipsComponent ]
+      declarations: [ NgChipsComponent ],
+      imports: [TagInputModule, FormsModule]
     })
     .compileComponents();
   });
@@ -16,10 +19,24 @@ describe('NgChipsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NgChipsComponent);
     component = fixture.componentInstance;
+    component.items = [];
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('emits the event onAdd', () => {
+    const itemName = 'New Item';
+
+    fakeAsync(async (done: DoneFn) => {
+
+      await component.onAdding(itemName);
+
+      tick();
+      fixture.detectChanges();
+    });
+  });
+
 });

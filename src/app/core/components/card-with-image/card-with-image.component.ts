@@ -22,6 +22,5 @@ export class CardWithImageComponent {
   };
 
   constructor() {
-    console.log('CardWithImageComponent user= ', this.user);
   }
 }

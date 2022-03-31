@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 import { CurrentUser } from '../../core/models/currentUser.model';
 import { PersonalDetails } from '../../core/models/currentUser.model';
 import { UserService } from "../../core/services/user/user.service";
@@ -30,12 +29,11 @@ export class ProfileComponent implements OnInit {
     personal_details: this.personalDetails
   };
   isDisabled: boolean = false;
-  constructor(public auth: AuthService,
-              public userService: UserService,
+  constructor(public userService: UserService,
               public alertService: AlertService) {}
 
   ngOnInit(): void {
-    this.currentUser = this.userService.getCurrentUser();
+    this.currentUser = this.userService.getCurrentUserFromLocalStorage();
   }
 
   getUpdatedUser(updatedUser: CurrentUser) {
@@ -43,7 +41,7 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile() {
-    this.userService.setCurrentUser(this.currentUser);
+    this.userService.setCurrentUserToLocalStorage(this.currentUser);
     this.isDisabled = true;
     this.alertService.success('User profile successfully updated!');
     this.isDisabled = false;

@@ -25,23 +25,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let employee of employeesList | filter: filterTerm">
+        <tr *ngFor="let employee of employeesList | filter: filterTerm" class="employee-row">
           <td>
             <div class="d-flex align-items-center">
-              <img [src]=employee.image alt="employee" width="45" class="rounded-circle">
+              <img [src]="employee.image" alt="employee" width="45" class="rounded-circle">
               <div class="ms-3">
-                <h5 class="mb-0 font-medium">{{employee.fullName}}</h5>
-                <span>{{employee.email}}</span>
+                <h5 class="mb-0 font-medium" data-employee-fullName="employee_fullName">{{employee.fullName}}</h5>
+                <span data-employee-email="employee_email">{{employee.email}}</span>
               </div>
             </div>
           </td>
-          <td class="fs-4">
+          <td class="fs-4" data-employee-position="employee_position">
             {{employee.position}}
           </td>
-          <td>
+          <td data-employee-project="employee_project">
             {{employee.project}}
           </td>
-          <td>
+          <td data-employee-status="employee_status">
             {{employee.status}}
           </td>
         </tr>

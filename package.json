@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test:coverage": "ng test --code-coverage=true",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -35,6 +36,7 @@
     "chart.js": "^2.8.0",
     "chartjs-color": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "karma-coverage": "^2.2.0",
     "ng-apexcharts": "^1.5.6",
     "ng2-charts": "^2.4.2",
     "ng2-search-filter": "^0.5.1",

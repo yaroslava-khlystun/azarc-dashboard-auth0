@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 import { Alert, AlertType } from '../../models/alert.model';
 
@@ -8,39 +7,37 @@ import { Alert, AlertType } from '../../models/alert.model';
   providedIn: 'root'
 })
 export class AlertService {
-  private subject = new Subject<Alert>();
-  private defaultId = 'default-alert';
+  public subject = new Subject<any>();
 
-  // enable subscribing to alerts observable
-  onAlert(id = this.defaultId): Observable<Alert> {
-    return this.subject.asObservable().pipe(filter(x => x && x.id === id));
+  constructor() {}
+
+  onAlert(): Observable<Alert> {
+    return this.subject
+      .asObservable();
   }
 
-  // convenience methods
-  success(message: string, options?: any) {
-    this.alert(new Alert({ ...options, type: AlertType.Success, message }));
+  success(message: string) {
+    this.alert(new Alert(message, AlertType.Success));
   }
 
-  error(message: string, options?: any) {
-    this.alert(new Alert({ ...options, type: AlertType.Error, message }));
+  error(message: string) {
+    this.alert(new Alert(message, AlertType.Error));
   }
 
-  info(message: string, options?: any) {
-    this.alert(new Alert({ ...options, type: AlertType.Info, message }));
+  info(message: string) {
+    this.alert(new Alert(message, AlertType.Info));
   }
 
-  warn(message: string, options?: any) {
-    this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
+  warn(message: string) {
+    this.alert(new Alert(message, AlertType.Warning));
   }
 
-  // main alert method
   alert(alert: Alert) {
-    alert.id = alert.id || this.defaultId;
     this.subject.next(alert);
   }
 
   // clear alerts
-  clear(id = this.defaultId) {
-    this.subject.next(new Alert({ id }));
+  clear() {
+    this.subject.next(null);
   }
 }

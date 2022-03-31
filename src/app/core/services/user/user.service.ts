@@ -27,22 +27,25 @@ export class UserService {
   };
 
   constructor(public auth: AuthService) {
-    if (Object.keys(this.getCurrentUser()).length !== 0) {
+    if (Object.keys(this.getCurrentUserFromLocalStorage()).length !== 0) {
       return;
     }
+    this.initCurrentUser();
+  }
+
+  initCurrentUser() {
     this.auth.getUser<CurrentUser>()
       .subscribe((data) => {
-        this.currentUser = {...this.currentUser, ...data};
-        this.setCurrentUser(this.currentUser);
+        this.currentUser = {...data, personal_details: this.personalDetails};
+        this.setCurrentUserToLocalStorage(this.currentUser);
       });
   }
 
-
-  setCurrentUser(user: CurrentUser) {
+  setCurrentUserToLocalStorage(user: CurrentUser | undefined) {
     localStorage.setItem('currentUser',JSON.stringify(user));
   }
 
-  getCurrentUser() {
+  getCurrentUserFromLocalStorage() {
     return JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 

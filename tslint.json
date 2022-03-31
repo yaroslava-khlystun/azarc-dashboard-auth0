@@ -41,7 +41,7 @@
       "trace"
     ],
     "no-empty": false,
-    
+
     "no-non-null-assertion": true,
     "no-switch-case-fall-through": true,
     "no-var-requires": false,
@@ -79,7 +79,7 @@
     "no-trailing-whitespace": false,
     "component-class-suffix": true,
     "contextual-lifecycle": true,
-    "directive-class-suffix": true,
+    "directive-class-suffix": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
@@ -93,9 +93,8 @@
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
     "directive-selector": [
-      true,
+      false,
       "attribute",
-      "app",
       "camelCase"
     ],
     "component-selector": [

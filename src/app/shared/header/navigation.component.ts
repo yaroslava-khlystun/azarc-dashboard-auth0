@@ -35,8 +35,8 @@ export class NavigationComponent implements AfterViewInit {
               private cdRef:ChangeDetectorRef) {
   }
 
-  ngAfterViewInit() {
-    this.currentUser = this.userService.getCurrentUser();
+  ngAfterViewInit(): void {
+    this.currentUser = this.userService.getCurrentUserFromLocalStorage();
     this.cdRef.detectChanges();
   }
 
@@ -44,5 +44,6 @@ export class NavigationComponent implements AfterViewInit {
     // Call this to log the user out of the application
     this.auth.logout({ returnTo: window.location.origin });
     this.userService.removeCurrentUser();
+    this.currentUser = {} as CurrentUser;
   }
 }

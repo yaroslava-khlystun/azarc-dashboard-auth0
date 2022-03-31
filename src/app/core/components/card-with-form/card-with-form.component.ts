@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CurrentUser } from '../../models/currentUser.model';
+import {CurrentUser} from '../../models/currentUser.model';
 
 @Component({
   selector: 'app-card-with-form',
@@ -20,6 +20,7 @@ export class CardWithFormComponent {
     sub: '',
     personal_details: {}
   };
+
 
   @Output() updatedUser = new EventEmitter<object>();
 

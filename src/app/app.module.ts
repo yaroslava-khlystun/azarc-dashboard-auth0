@@ -13,7 +13,7 @@ import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { DesktopComponent } from './layouts/desktop/desktop.component';
+import { DesktopLayoutComponent } from './layouts/desktop/desktop-layout.component';
 import { ProfileComponent } from './modules/profile/profile.component'
 import { NavigationComponent } from './shared/header/navigation.component';
 import { CardWithImageComponent } from "./core/components/card-with-image/card-with-image.component";
@@ -41,7 +41,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [
     AppComponent,
     SpinnerComponent,
-    DesktopComponent,
+    DesktopLayoutComponent,
     ProfileComponent,
     NavigationComponent,
     CardWithImageComponent,
